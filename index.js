@@ -1,6 +1,3 @@
-// Example express application adding the parse-server module to expose Parse
-// compatible API routes.
-
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
@@ -15,11 +12,20 @@ var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
+  fileKey: process.env.FILE_KEY || 'b49e7a8a-3b2a-49ae-9e34-b010a7540e52',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
-  }
+    classNames: ['Posts'] // List of classes to support for query subscriptions
+  },
+  push: {
+      ios: {
+        pfx: 'CertificatesPushNotification.p12', // Prod PFX or P12
+        bundleId: 'BRICS.Comrate',  
+        production: false // Prod
+      }
+      
+    }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
@@ -52,4 +58,4 @@ httpServer.listen(port, function() {
 });
 
 // This will enable the Live Query real-time server
-ParseServer.createLiveQueryServer(httpServer);
+var parseLiveQueryServer = ParseServer.createLiveQueryServer(httpServer);
