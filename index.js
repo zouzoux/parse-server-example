@@ -13,7 +13,18 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   fileKey: process.env.FILE_KEY || 'b49e7a8a-3b2a-49ae-9e34-b010a7540e52',
-  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+  masterKey: process.env.MASTER_KEY || '',
+    emailAdapter: {
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+      // The address that your emails come from
+      fromAddress: 'Mailgun Sandbox',
+      // Your domain from mailgun.com
+      domain: 'sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
+      // Your API key from mailgun.com
+      apiKey: 'key-10e82eb3489a68ed4f84dec523a73fdf',
+    }
+  },//Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ['Posts'] // List of classes to support for query subscriptions
