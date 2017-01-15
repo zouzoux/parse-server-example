@@ -14,7 +14,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   fileKey: process.env.FILE_KEY || 'b49e7a8a-3b2a-49ae-9e34-b010a7540e52',
   masterKey: process.env.MASTER_KEY || '',
-    publicServerURL: 'https://comerate2016.herokuapp.com/parse',
+    publicServerURL: 'http://comerate2016.herokuapp.com/parse/',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
   appName: 'Socialive',
     emailAdapter: {
