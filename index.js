@@ -14,7 +14,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   fileKey: process.env.FILE_KEY || 'b49e7a8a-3b2a-49ae-9e34-b010a7540e52',
   masterKey: process.env.MASTER_KEY || '',
-    publicServerURL: 'http://comerate2016.herokuapp.com/parse/',
+    publicServerURL: 'http://comerate2016.herokuapp.com/parse',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
   appName: 'Socialive',
     emailAdapter: {
@@ -23,7 +23,7 @@ var api = new ParseServer({
       // The address that your emails come from
       fromAddress: 'postmaster@sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
       // Your domain from mailgun.com
-      domain: 'https://api.mailgun.net/v3/sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
+      domain: 'sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
       // Your API key from mailgun.com
       apiKey: 'key-10e82eb3489a68ed4f84dec523a73fdf',
     }
