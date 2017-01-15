@@ -23,7 +23,7 @@ var api = new ParseServer({
       // The address that your emails come from
       fromAddress: 'postmaster@sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
       // Your domain from mailgun.com
-      domain: 'https://api.mailgun.net/v3/sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
+      domain: 'sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
       // Your API key from mailgun.com
       apiKey: 'key-10e82eb3489a68ed4f84dec523a73fdf',
     }
