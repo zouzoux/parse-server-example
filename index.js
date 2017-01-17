@@ -21,9 +21,9 @@ var api = new ParseServer({
     module: 'parse-server-simple-mailgun-adapter',
     options: {
       // The address that your emails come from
-      fromAddress: 'Socialive <postmaster@sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org>',
+      fromAddress: 'Socialive <postmaster@socialiveapp.com>',
       // Your domain from mailgun.com
-      domain: 'sandbox53cbe99b1e024c60ba5a521da201175f.mailgun.org',
+      domain: 'socialiveapp.com',
       // Your API key from mailgun.com
       apiKey: 'key-10e82eb3489a68ed4f84dec523a73fdf',
     }
