@@ -12,7 +12,7 @@ Parse.serverURL = 'https://comerate2016.herokuapp.com/parse/';
 var path = require('path');
  
 
-var client = require(path.join(__dirname, '/cloud/myMailModule-1.0.0.js'));
+var client = require(path.join(__dirname, '/myMailModule-1.0.0.js'));
 client.initialize('socialiveapp.com', 'key-10e82eb3489a68ed4f84dec523a73fdf');
 
 
