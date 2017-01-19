@@ -47,24 +47,7 @@ featuredList.save(null, {
   success: function(featuredList) {
    console.log("akall");
     
-  },
-  error: function(featuredList, error) {
-    // Execute any logic that should take place if the save fails.
-    // error is a Parse.Error with an error code and message.
-   console.log("SHU 3am Bi Sir");
-  }
-});
-     
-  
-  },
-
-  error: function(error) {
-    // error is an instance of Parse.Error.
-  }
-});
-	
-	
-  console.log('The answer to life, the universe, and everything!');
+	    console.log('The answer to life, the universe, and everything!');
 	 var userQuery = new Parse.Query('_User');
 	userQuery.limit(1000);
 	
@@ -96,6 +79,27 @@ var counter = 0;
     // error is an instance of Parse.Error.
   }
 });
+	  
+	  
+	  
+  },
+  error: function(featuredList, error) {
+    // Execute any logic that should take place if the save fails.
+    // error is a Parse.Error with an error code and message.
+   console.log("SHU 3am Bi Sir");
+  }
+});
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
+
 });
 
 Parse.Cloud.define('resetTrendingIndicator', function(req, res) {
