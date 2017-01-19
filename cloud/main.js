@@ -32,7 +32,7 @@ var counter = 0;
     userData.set('TrendingIndicator',0);
 	   var name = userData.get('username');
 	   top10featured.push(name);
-	     console.log(top10featured[0]+"HOLAAAAAAAAAA");
+	     console.log("HOLAAAAAAAAAA");
 	   counter++;
     
      
