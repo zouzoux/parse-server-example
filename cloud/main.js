@@ -12,6 +12,44 @@ var schedule = require('node-schedule');
 
 
 var j = schedule.scheduleJob(' */60 * * * *', function(){
+	
+	
+	 var userQuery = new Parse.Query('_User');
+	userQuery.limit(10);
+	var top10featured;
+	userQuery.orderByDescending( "TrendingIndicator");
+	
+	
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+    var userData = results[i];
+    userData.set('TrendingIndicator',0);
+	   var name = userData.get('username');
+	   top10featured.push(name);
+	   counter++;
+    
+     
+   }
+	  
+	  console.log(top10featured[0]);
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
   console.log('The answer to life, the universe, and everything!');
 	 var userQuery = new Parse.Query('_User');
 	userQuery.limit(1000);
