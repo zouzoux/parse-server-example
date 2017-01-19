@@ -45,13 +45,13 @@ featuredList.set("FeaturedTop", testarr);
 
 featuredList.save(null, {
   success: function(featuredList) {
-    // Execute any logic that should take place after the object is saved.
+   console.log("akall");
     
   },
   error: function(featuredList, error) {
     // Execute any logic that should take place if the save fails.
     // error is a Parse.Error with an error code and message.
-   
+   console.log("SHU 3am Bi Sir");
   }
 });
      
