@@ -30,6 +30,7 @@
     "mailgun-js": "0.8.0",
     "mongodb": "2.2.10",
     "multer": "1.2.0",
+    "node-schedule": "1.2.0",
     "parse": "1.9.2",
     "parse-server": "*",
     "parse-server-fs-adapter": "1.0.1",
