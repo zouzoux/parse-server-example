@@ -40,7 +40,25 @@ var counter = 0;
 	  
 	
     res.success('I passed on '+counter + ' users');
+  
+	  
+	  var featured = Parse.Object.extend("Featured");
+var featuredList = new featured();
+
+featuredList.set("FeaturedTop", top10featured);
+
+
+featuredList.save(null, {
+  success: function(gameScore) {
+    // Execute any logic that should take place after the object is saved.
+    
+  },
+  error: function(gameScore, error) {
+    // Execute any logic that should take place if the save fails.
+    // error is a Parse.Error with an error code and message.
    
+  }
+});
      
   
   },
