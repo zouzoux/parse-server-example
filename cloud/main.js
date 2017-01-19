@@ -17,7 +17,7 @@ var j = schedule.scheduleJob(' */1 * * * *', function(){
 	 var userQuery = new Parse.Query('_User');
 	userQuery.limit(10);
 	var top10featured;
-	userQuery.orderByDescending( "TrendingIndicator");
+	userQuery.descending( "TrendingIndicator");
 	
 	
 	 userQuery.find({
