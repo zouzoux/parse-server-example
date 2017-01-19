@@ -39,7 +39,7 @@ var counter = 0;
 	    var FeaturedList = Parse.Object.extend("Featured");  
 var featuredList = new FeaturedList();  
 
-
+featuredList.set("FeaturedTop", topguys);
 featuredList.save(null, {
     success: function(featuredList) {
         console.log("update succeed");
