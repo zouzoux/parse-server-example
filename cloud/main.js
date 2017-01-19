@@ -33,7 +33,7 @@ var counter = 0;
    }
 	  
 	
-    res.success('I passed on '+counter + ' users');
+  
   
 	  
 	  var featured = Parse.Object.extend("Featured");
