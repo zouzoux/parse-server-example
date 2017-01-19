@@ -1,4 +1,31 @@
+
+
+
+
+
+
+
+
 Parse.serverURL = 'https://comerate2016.herokuapp.com/parse/';
+
+var client = require('cloud/myMailModule-1.0.0.js');
+client.initialize('socialiveapp.com', 'key-10e82eb3489a68ed4f84dec523a73fdf');
+
+
+Parse.Cloud.define("sendWelcomeMail", function(request, response) {
+  client.sendEmail({
+    to: "hajjarjoseph97@gmail.com",
+    from: "socialive@socialiveapp.com",
+    subject: "Hello from Socialive!",
+    text: "Hello Joseph we would like to welcome you to our team!"
+  }).then(function(httpResponse) {
+    response.success("Email sent!");
+  }, function(httpResponse) {
+    console.error(httpResponse);
+    response.error("Uh oh, something went wrong");
+  });
+});
+
 Parse.Cloud.define('incrementFollowers',function(request,response)
 {    
   
