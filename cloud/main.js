@@ -32,23 +32,7 @@ var counter = 0;
 	     console.log("HOLAAAAAAAAAA");
    }
 	  
-	
-  
-  
-	  
-	  var featured = Parse.Object.extend("Featured");
-var featuredList = new featured();
-var testarr;
-	  testarr.push("hello");
-featuredList.set("FeaturedTop", testarr);
-
-
-featuredList.save(null, {
-  success: function(featuredList) {
-   console.log("akall");
-    
-	    console.log('The answer to life, the universe, and everything!');
-	 var userQuery = new Parse.Query('_User');
+		 var userQuery = new Parse.Query('_User');
 	userQuery.limit(1000);
 	
 	userQuery.greaterThanOrEqualTo( "TrendingIndicator",0);
@@ -79,18 +63,9 @@ var counter = 0;
     // error is an instance of Parse.Error.
   }
 });
-	  
-	  
-	  
-  },
-  error: function(featuredList, error) {
-    // Execute any logic that should take place if the save fails.
-    // error is a Parse.Error with an error code and message.
-   console.log("SHU 3am Bi Sir");
-  }
-});
-     
   
+  
+	
   },
 
   error: function(error) {
