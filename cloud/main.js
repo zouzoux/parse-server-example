@@ -21,14 +21,14 @@ var j = schedule.scheduleJob(' */1 * * * *', function(){
 	
 	
 	 trendingQ.find({
-  success: function(results) {
+  success: function(resultsT) {
  
   
  
 var counter = 0;
-   for (var i = 0; i < results.length; i++) {
+   for (var i = 0; i < resultsT.length; i++) {
   
-    var userData = results[i];
+    var userData = resultsT[i];
 	     console.log("HOLAAAAAAAAAA");
 	   var name = userData.get("username");
 	  
