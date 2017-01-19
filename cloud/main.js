@@ -13,7 +13,8 @@ var schedule = require('node-schedule');
 
 var j = schedule.scheduleJob(' */1 * * * *', function(){
 	
-	var topguys = new Array(10);
+	var topguys = [];
+	topguys.push("toufic");
 	 var trendingQ = new Parse.Query('_User');
 	trendingQ.limit(10);
 	var top10featured;
