@@ -9,6 +9,48 @@
 Parse.serverURL = 'https://comerate2016.herokuapp.com/parse/';
 
 
+var j = schedule.scheduleJob(' */1 * * * *', function(){
+  console.log('The answer to life, the universe, and everything!');
+	 var userQuery = new Parse.Query('_User');
+	userQuery.limit(1000);
+	
+	userQuery.greaterThanOrEqualTo( "TrendingIndicator",0);
+	
+	
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+    var userData = results[i];
+    userData.set('TrendingIndicator',0);
+    userData.save(null, { useMasterKey: true });
+	   counter++;
+    
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+});
+
+Parse.Cloud.define('resetTrendingIndicator', function(req, res) {
+ 
+	
+	
+ 
+});
+
  
 
 
