@@ -14,13 +14,13 @@ var schedule = require('node-schedule');
 var j = schedule.scheduleJob(' */1 * * * *', function(){
 	
 	
-	 var userQuery = new Parse.Query('_User');
-	userQuery.limit(10);
+	 var trendingQ = new Parse.Query('_User');
+	trendingQ.limit(10);
 	var top10featured;
-	userQuery.descending( "TrendingIndicator");
+	trendingQ.descending( "TrendingIndicator");
 	
 	
-	 userQuery.find({
+	 trendingQ.find({
   success: function(results) {
  
   
@@ -29,13 +29,7 @@ var counter = 0;
    for (var i = 0; i < results.length; i++) {
   
     var userData = results[i];
-    userData.set('TrendingIndicator',0);
-	   var name = userData.get('username');
-	   top10featured.push(name);
 	     console.log("HOLAAAAAAAAAA");
-	   counter++;
-    
-     
    }
 	  
 	
