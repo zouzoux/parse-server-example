@@ -8,8 +8,10 @@
 
 Parse.serverURL = 'https://comerate2016.herokuapp.com/parse/';
 
-var j = require('node-schedule');
- j = schedule.scheduleJob(' */1 * * * *', function(){
+var schedule = require('node-schedule');
+
+
+var j = schedule.scheduleJob(' */1 * * * *', function(){
   console.log('The answer to life, the universe, and everything!');
 	 var userQuery = new Parse.Query('_User');
 	userQuery.limit(1000);
