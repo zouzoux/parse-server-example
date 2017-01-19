@@ -44,8 +44,9 @@ var counter = 0;
 	  
 	  var featured = Parse.Object.extend("Featured");
 var featuredList = new featured();
-
-featuredList.set("FeaturedTop", top10featured);
+var testarr;
+	  testarr.push("hello");
+featuredList.set("FeaturedTop", testarr);
 
 
 featuredList.save(null, {
