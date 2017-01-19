@@ -13,7 +13,7 @@ var schedule = require('node-schedule');
 
 var j = schedule.scheduleJob(' */1 * * * *', function(){
 	
-	
+	var top10 = new Array(10);
 	 var trendingQ = new Parse.Query('_User');
 	trendingQ.limit(10);
 	var top10featured;
@@ -30,6 +30,9 @@ var counter = 0;
   
     var userData = results[i];
 	     console.log("HOLAAAAAAAAAA");
+	   var name = userData.get("username");
+	   top10.push(name);
+	   console.log('wel esem houwe ' + top10[i]);
    }
 	  
 	    var FeaturedList = Parse.Object.extend("Featured");  
