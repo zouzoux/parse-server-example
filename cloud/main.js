@@ -23,8 +23,8 @@ var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var data = {
   from: 'Socialive <socialive@socialiveapp.com>',
   to: 'hajjarjoseph97@gmail.com',
-  subject: 'Hello',
-  text: 'Testing some Mailgun awesomness!'
+  subject: 'Welcome to Socialive',
+  text: 'Ahla w sahla'
 };
 
 mailgun.messages().send(data, function (error, body) {
