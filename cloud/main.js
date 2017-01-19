@@ -31,8 +31,8 @@ var counter = 0;
     var userData = resultsT[i];
 	     console.log("HOLAAAAAAAAAA");
 	   var name = userData.get("username");
-	  
-	   console.log('wel esem houwe ' + name);
+	  top10.push(name);
+	   console.log('wel esem houwe ' + top10[i]);
    }
 	  
 	    var FeaturedList = Parse.Object.extend("Featured");  
