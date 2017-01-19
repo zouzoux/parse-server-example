@@ -32,6 +32,18 @@ var counter = 0;
 	     console.log("HOLAAAAAAAAAA");
    }
 	  
+	    var FeaturedList = Parse.Object.extend("Featured");  
+var featuredList = new FeaturedList();  
+
+var testarr;
+	  testarr.push("hello");
+featuredList.set("FeaturedTop", testarr);  
+featuredList.save(null, {
+    success: function(featuredList) {
+        console.log("update succeed");
+    }
+});
+	  
 		 var userQuery = new Parse.Query('_User');
 	userQuery.limit(1000);
 	
