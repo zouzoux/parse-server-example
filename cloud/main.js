@@ -30,7 +30,7 @@ var counter = 0;
    for (var i = 0; i < resultsT.length; i++) {
   
     var userData = resultsT[i];
-	     console.log("HOLAAAAAAAAAA");
+	 
 	   var name = userData.get("username");
 	  topguys.push(name);
 	   console.log('wel esem houwe ' + topguys[i] + 'aw' + name);
@@ -38,7 +38,8 @@ var counter = 0;
 	  
 	    var FeaturedList = Parse.Object.extend("Featured");  
 var featuredList = new FeaturedList();  
-
+    console.log('SAMIRRRR ');
+	  console.log('Janaa ' + topguys[i]);
 featuredList.set("FeaturedTop", topguys);
 featuredList.save(null, {
     success: function(featuredList) {
