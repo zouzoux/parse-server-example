@@ -34,8 +34,8 @@ var api = new ParseServer({
   },
   push: {
       ios: {
-        pfx: 'CertificatesPushNotification.p12', // Prod PFX or P12
-        bundleId: 'BRICS.Comrate',  
+        pfx: 'PushDev.p12', // Prod PFX or P12
+        bundleId: 'SLA.Socialive',  
         production: false // Prod
       }
       
