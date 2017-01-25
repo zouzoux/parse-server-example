@@ -545,6 +545,31 @@ var selectedUser = request.params.selectedUser
   });
 });
 
+Parse.Cloud.define("multiplePush", function(request, response) {
+
+  var selectedUsers = request.params.selectedUser
+  var params = request.params;
+  var data = params.data
+
+ var pushQuery = new Parse.Query(Parse.Installation);
+  pushQuery.containedIn('username', selectedUsers); // targeting iOS devices only
+ 
+
+
+  Parse.Push.send({
+    where: pushQuery, // Set our Installation query
+    data: data
+  }, { success: function() {
+      console.log("#### PUSH OK");
+  }, error: function(error) {
+      console.log("#### PUSH ERROR" + error.message);
+  }, useMasterKey: true});
+
+  response.success('success');
+});
+
+
+
 
 Parse.Cloud.define("iosPush", function(request, response) {
 
