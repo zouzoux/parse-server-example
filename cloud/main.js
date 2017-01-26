@@ -94,13 +94,43 @@ var counter = 0;
 
 Parse.Cloud.define('resetTrendingIndicator', function(req, res) {
  
-	
+
 	
  
 });
 
  
+Parse.Cloud.define('multiplenoti',function(request,response)
+{    
+  
 
+var myUsername = request.params.myUsername
+	var selectedUsers = request.params.selectedUsers 
+	var type = request.params.type 
+	var description = request.params.description
+	var postid = request.params.postid
+	
+	 for (var i = 0; i < selectedUsers.length; i++) {
+  
+		 	 var NotiList = Parse.Object.extend("Notifications");  
+var notiList = new NotiList();  
+notiList.set("Receiver", selectedUsers[i]);
+		 notiList.set("Sender",myUsername);
+		 notiList.set("Seen",false);
+		 notiList.set("Type",type);
+		  notiList.set("Description",description[i]);
+		  notiList.set("PostId",postid[i]);
+		 
+notiList.save(null, {
+    success: function(featuredList) {
+        console.log("update succeed");
+    }
+});
+    
+     
+   }
+  
+});
 
 Parse.Cloud.define("sendWelcomeMail", function(request, response) {
   
