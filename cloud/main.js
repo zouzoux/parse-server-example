@@ -170,6 +170,7 @@ var myUsername = request.params.myUsername
   var userQuery = new Parse.Query('Installation');
   userQuery.equalTo('username',myUsername);
   
+  console.log("The kingos is usename: " + myUsername);
 
  	
 	 userQuery.find({
@@ -184,7 +185,7 @@ var counter = 0;
     userData.set('badge',0);
     userData.save(null, { useMasterKey: true });
 	   counter++;
-    
+      console.log("The kingos is usename: " + myUsername);
      
    }
     res.success('I passed on '+counter + ' users');
