@@ -167,7 +167,7 @@ Parse.Cloud.define('resetBadge',function(request,response)
 
 var myUsername = request.params.myUsername
 	
-  var userQuery = new Parse.Query('Installation');
+  var userQuery = new Parse.Query('_Installation');
   userQuery.equalTo('username',myUsername);
   
   console.log("The kingos is usename: " + myUsername);
