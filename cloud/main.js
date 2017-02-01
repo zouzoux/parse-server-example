@@ -118,8 +118,8 @@ notiList.set("Receiver", selectedUsers[i]);
 		 notiList.set("Sender",myUsername);
 		 notiList.set("Seen",false);
 		 notiList.set("Type",type);
-		  notiList.set("Description",description[i]);
-		  notiList.set("PostId",postid[i]);
+		  notiList.set("Description",description);
+		  notiList.set("PostId",postid);
 		 
 notiList.save(null, {
     success: function(featuredList) {
