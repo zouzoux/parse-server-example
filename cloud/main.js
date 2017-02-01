@@ -110,6 +110,10 @@ var myUsername = request.params.myUsername
 	var description = request.params.description
 	var postid = request.params.postid
 	
+	
+	  console.log("Bitch you guessing " + selectedUsers.length);
+	
+	
 	 for (var i = 0; i < selectedUsers.length; i++) {
   
 		 	 var NotiList = Parse.Object.extend("Notifications");  
@@ -120,6 +124,8 @@ notiList.set("Receiver", selectedUsers[i]);
 		 notiList.set("Type",type);
 		  notiList.set("Description",description);
 		  notiList.set("PostId",postid);
+		 
+		   console.log("Youzz right " + i);
 		 
 notiList.save(null, {
     success: function(featuredList) {
