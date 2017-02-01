@@ -161,7 +161,7 @@ mailgun.messages().send(data, function (error, body) {
 
 
 
-Parse.initialize(applicationId, javaScriptKey, masterKey);
+
 
 
 Parse.Cloud.define('resetBadge',function(request,response)
