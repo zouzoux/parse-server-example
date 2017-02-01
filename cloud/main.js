@@ -100,7 +100,7 @@ Parse.Cloud.define('resetTrendingIndicator', function(req, res) {
 });
 
  
-Parse.Cloud.define('multiplenoti',function(request,response)
+Parse.Cloud.define('multipleNoti',function(request,response)
 {    
   
 
