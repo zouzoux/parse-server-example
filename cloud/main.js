@@ -174,7 +174,7 @@ var myUsername = request.params.myUsername
 
 	
  	
-	  userQuery.first({ useMasterKey: true }).then((userData) => {
+	  userQuery.find({ useMasterKey: true }).then((userData) => {
   console.log('yalla ya awedim');
     
          userData.set('badge',0);
