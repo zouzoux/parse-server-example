@@ -159,6 +159,48 @@ mailgun.messages().send(data, function (error, body) {
 	
 });
 
+
+
+Parse.Cloud.define('resetBadge',function(request,response)
+{    
+  
+
+var myUsername = request.params.myUsername
+	
+  var userQuery = new Parse.Query('Installation');
+  userQuery.equalTo('username',myUsername);
+  
+
+ 	
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+    var userData = results[i];
+    userData.set('badge',0);
+    userData.save(null, { useMasterKey: true });
+	   counter++;
+    
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+});
+
+
+
 Parse.Cloud.define('incrementFollowers',function(request,response)
 {    
   
