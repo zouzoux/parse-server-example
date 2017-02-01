@@ -178,7 +178,7 @@ var myUsername = request.params.myUsername
   console.log("The kingos is usename: " + myUsername);
 	
 	
-	 userQuery.count({ useMasterKey: true }) // count() will use the master key to bypass ACLs
+	 userQuery.find({ useMasterKey: true }) // count() will use the master key to bypass ACLs
     .then(function(count) {
 		   for (var i = 0; i < count.length; i++) {
   
