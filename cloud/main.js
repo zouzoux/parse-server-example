@@ -162,45 +162,37 @@ mailgun.messages().send(data, function (error, body) {
 
 
 
-Parse.initialize('2016comrate', 'b49e7a8a-3b2a-49ae-9e34-b010a7540e52', '2016comrate1');
+
 
 Parse.Cloud.define('resetBadge',function(request,response)
 {    
-  Parse.Cloud.useMasterKey();
+ 
 
 var myUsername = request.params.myUsername
 	
   var userQuery = new Parse.Query('_Installation');
   userQuery.equalTo('username',myUsername);
   
+	
+	
   console.log("The kingos is usename: " + myUsername);
 	
 	
- 	 userQuery.find({
-  success: function(results) {
- 
+	 userQuery.count({ useMasterKey: true }) // count() will use the master key to bypass ACLs
+    .then(function(count) {
+		   for (var i = 0; i < count.length; i++) {
   
- 
-var counter = 0;
-   for (var i = 0; i < results.length; i++) {
-  
-    var userData = results[i];
+    var userData = count[i];
     userData.set('badge',0);
     userData.save(null, { useMasterKey: true });
-	   counter++;
+	
     
      
    }
-    res.success('I passed on '+counter + ' users');
-   
-     
-  
-  },
-
-  error: function(error) {
-    // error is an instance of Parse.Error.
-  }
-});
+      response.success(count);
+    });
+	
+	
 });
 
 
