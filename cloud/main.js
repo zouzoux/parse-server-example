@@ -161,9 +161,12 @@ mailgun.messages().send(data, function (error, body) {
 
 
 
+Parse.initialize(applicationId, javaScriptKey, masterKey);
+
+
 Parse.Cloud.define('resetBadge',function(request,response)
 {    
-  
+  Parse.Cloud.useMasterKey();
 
 var myUsername = request.params.myUsername
 	
@@ -171,21 +174,33 @@ var myUsername = request.params.myUsername
   userQuery.equalTo('username',myUsername);
   
   console.log("The kingos is usename: " + myUsername);
-
 	
- 	
-	  userQuery.find({ useMasterKey: true }).then((userData) => {
-  console.log('yalla ya awedim');
+	
+ 	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+    var userData = results[i];
+    userData.set('badge',0);
+    userData.save(null, { useMasterKey: true });
+	   counter++;
     
-         userData.set('badge',0);
-    return userData.save(null, { useMasterKey: true });
-  }).then((userDataAgain) => {
-    console.log('after save');
-    response.success('whatever you want to return');
-  }, (error) => {
-    console.log(error);
-    response.error(error);
-  });
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
 });
 
 
