@@ -162,7 +162,7 @@ mailgun.messages().send(data, function (error, body) {
 
 
 
-Parse.initialize('2016comrate', '', '2016comrate1');
+Parse.initialize('2016comrate', 'b49e7a8a-3b2a-49ae-9e34-b010a7540e52', '2016comrate1');
 
 Parse.Cloud.define('resetBadge',function(request,response)
 {    
