@@ -144,7 +144,7 @@ Parse.Cloud.define('SeenCloud', function(req, res) {
   var userQuery = new Parse.Query('Notifications');
 	
 	
-var myUsername = request.params.myUsername
+var myUsername = req.params.myUsername
 	
 	
 	userQuery.equalTo('Receiver',myUsername);
