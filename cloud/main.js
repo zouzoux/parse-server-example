@@ -149,7 +149,7 @@ var myUsername = request.params.myUsername
 	
 	userQuery.equalTo('Receiver',myUsername);
 	
-	
+	console.log('Username is ' + myUsername);
 	 userQuery.find({
   success: function(results) {
  
@@ -158,6 +158,9 @@ var myUsername = request.params.myUsername
 var counter = 0;
    for (var i = 0; i < results.length; i++) {
   
+	   
+	   
+	console.log('Username anjad huwe  ' + myUsername);
     var userData = results[i];
     userData.set('Seen',true);
     userData.save(null, { useMasterKey: true });
