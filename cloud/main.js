@@ -138,6 +138,50 @@ notiList.save(null, {
   
 });
 
+
+
+Parse.Cloud.define('SeenCloud', function(req, res) {
+  var userQuery = new Parse.Query('Notifications');
+	
+	
+var myUsername = request.params.myUsername
+	
+	userQuery.equalTo('Seen',false);
+	userQuery.equalTo('Receiver',myUsername);
+	
+	
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+    var userData = results[i];
+    userData.set('Seen',true);
+    userData.save(null, { useMasterKey: true });
+	   counter++;
+    
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
+ 
+});
+
+
+
 Parse.Cloud.define("sendWelcomeMail", function(request, response) {
   
 	var api_key = 'key-10e82eb3489a68ed4f84dec523a73fdf';
