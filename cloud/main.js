@@ -146,7 +146,7 @@ Parse.Cloud.define('SeenCloud', function(req, res) {
 	
 var myUsername = request.params.myUsername
 	
-	userQuery.equalTo('Seen',false);
+	
 	userQuery.equalTo('Receiver',myUsername);
 	
 	
