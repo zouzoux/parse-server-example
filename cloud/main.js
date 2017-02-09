@@ -148,6 +148,7 @@ var myUsername = req.params.myUsername
 	
 	
 	userQuery.equalTo('Receiver',myUsername);
+	userQuery.equalTo('Seen',false);
 	
 	console.log('Username is ' + myUsername);
 	 userQuery.find({
