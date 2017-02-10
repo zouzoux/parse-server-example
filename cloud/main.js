@@ -188,6 +188,9 @@ var counter = 0;
 
 Parse.Cloud.define("sendWelcomeMail", function(request, response) {
   
+	var myEmail = request.params.myEmail
+	
+	
 	var api_key = 'key-10e82eb3489a68ed4f84dec523a73fdf';
 var domain = 'socialiveapp.com';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
@@ -196,7 +199,7 @@ var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 var data = {
   from: 'Socialive <socialive@socialiveapp.com>',
-  to: 'hajjarjoseph97@gmail.com',
+  to: myEmail,
   subject: 'Welcome to Socialive',
   text: 'Ahla w sahla'
 };
