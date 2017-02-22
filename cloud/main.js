@@ -11,7 +11,7 @@ Parse.serverURL = 'https://comerate2016.herokuapp.com/parse/';
 var schedule = require('node-schedule');
 
 
-var j = schedule.scheduleJob(' */60 * * * *', function(){
+var j = schedule.scheduleJob(' */1440 * * * *', function(){
 	
 	var topguys = [];
 	
