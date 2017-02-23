@@ -338,6 +338,42 @@ var myUsername = request.params.myUsername
     response.error(error);
   });
 });
+
+Parse.Cloud.define('unBlock',function(request,response)
+{    
+  
+
+var myUsername = request.params.myUsername
+	var selectedUser = request.params.selectedUser
+  var userQuery = new Parse.Query('_User');
+  userQuery.equalTo('username',selectedUser);
+  
+
+  userQuery.first({ useMasterKey: true }).then((userData) => {
+  console.log('before save');
+  console.log(userData.get('username') + ' is a king!');
+    
+    
+        
+         var followers = userData.get('BlockedBy')
+	var arrayLength = followers.length;
+	for (var i = 0; i < arrayLength; i++) {
+	if(myUsername == followers[i]){
+	followers.splice(i, 1)
+		}
+								//Do something
+			}
+    return userData.save(null, { useMasterKey: true });
+  }).then((userDataAgain) => {
+    console.log('after save');
+    response.success('whatever you want to return');
+  }, (error) => {
+    console.log(error);
+    response.error(error);
+  });
+});
+
+
 Parse.Cloud.define('decrementFollowers',function(request,response)
 {    
   
