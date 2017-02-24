@@ -185,6 +185,94 @@ var counter = 0;
 });
 
 
+Parse.Cloud.define('SeenCloud', function(req, res) {
+  var userQuery = new Parse.Query('Notifications');
+	
+	
+var myUsername = req.params.myUsername
+	
+	
+	userQuery.equalTo('Receiver',myUsername);
+	userQuery.equalTo('Seen',false);
+	
+	console.log('Username is ' + myUsername);
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+	   
+	   
+	console.log('Username anjad huwe  ' + myUsername);
+    var userData = results[i];
+    userData.set('Seen',true);
+    userData.save(null, { useMasterKey: true });
+	   counter++;
+    
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
+ 
+});
+
+Parse.Cloud.define('forgetNoti1', function(req, res) {
+  var userQuery = new Parse.Query('Notifications');
+	
+	
+var myUsername = req.params.myUsername
+var selectedUser = req.params.selectedUser 
+	
+	
+	userQuery.equalTo('Receiver',myUsername);
+	userQuery.equalTo('Sender',selectedUser);
+	
+	console.log('Username is ' + myUsername);
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+	   
+	   
+	console.log('Username anjad huwe  ' + myUsername);
+    var userData = results[i];
+    userData.destroy({});
+    
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
+ 
+});
+
+
 
 Parse.Cloud.define("sendWelcomeMail", function(request, response) {
   
