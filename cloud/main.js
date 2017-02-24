@@ -273,6 +273,50 @@ var counter = 0;
 });
 
 
+Parse.Cloud.define('forgetNoti2', function(req, res) {
+  var userQuery = new Parse.Query('Notifications');
+	
+	
+var myUsername = req.params.myUsername
+var selectedUser = req.params.selectedUser 
+	
+	
+	userQuery.equalTo('Receiver',selectedUser);
+	userQuery.equalTo('Sender',myUsername);
+	
+	console.log('Username is ' + myUsername);
+	 userQuery.find({
+  success: function(results) {
+ 
+  
+ 
+var counter = 0;
+   for (var i = 0; i < results.length; i++) {
+  
+	   
+	   
+	console.log('Username anjad huwe  ' + myUsername);
+    var userData = results[i];
+    userData.destroy({});
+    
+     
+   }
+    res.success('I passed on '+counter + ' users');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
+ 
+});
+
+
 
 Parse.Cloud.define("sendWelcomeMail", function(request, response) {
   
