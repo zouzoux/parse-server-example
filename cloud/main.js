@@ -305,6 +305,33 @@ var myUsername = request.params.myUsername
   });
 });
 
+Parse.Cloud.define('incrementReporters',function(request,response)
+{    
+  
+
+var myUsername = request.params.myUsername
+	var selectedUser = request.params.selectedUser
+  var userQuery = new Parse.Query('_User');
+  userQuery.equalTo('username',selectedUser);
+  
+
+  userQuery.first({ useMasterKey: true }).then((userData) => {
+  console.log('before save');
+  console.log(userData.get('username') + ' is a king!');
+    
+   
+           var blockers = userData.get('ReportedBy');
+           blockers.push(myUsername);
+    return userData.save(null, { useMasterKey: true });
+  }).then((userDataAgain) => {
+    console.log('after save');
+    response.success('whatever you want to return');
+  }, (error) => {
+    console.log(error);
+    response.error(error);
+  });
+});
+
 
 
 Parse.Cloud.define('letHimForget',function(request,response)
