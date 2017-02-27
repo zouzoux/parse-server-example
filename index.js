@@ -34,9 +34,9 @@ var api = new ParseServer({
   },
   push: {
       ios: {
-        pfx: 'PushDev.p12', // Prod PFX or P12
+        pfx: 'SocialiveCertificate.p12', // Prod PFX or P12
         bundleId: 'SLA.Socialive',  
-        production: false // Prod
+        production: true // Prod
       }
       
     }
