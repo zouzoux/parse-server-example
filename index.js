@@ -17,6 +17,39 @@ var api = new ParseServer({
     publicServerURL: 'http://comerate2016.herokuapp.com/parse',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
   appName: 'Socialive',
+   emailAdapter: {
+    module: 'parse-server-mailgun',
+    options: {
+      // The address that your emails come from 
+      fromAddress: 'Socialive <socialive@socialiveapp.com>',
+      // Your domain from mailgun.com 
+      domain: 'socialiveapp.com',
+      // Your API key from mailgun.com 
+      apiKey: 'key-10e82eb3489a68ed4f84dec523a73fdf',
+      // The template section 
+      templates: {
+        passwordResetEmail: {
+          subject: 'Reset your password',
+          pathPlainText: resolve(__dirname, 'path/to/templates/password_reset_email.txt'),
+          pathHtml: resolve(__dirname, 'path/to/templates/password_reset_email.html'),
+          callback: (user) => { return { firstName: user.get('firstName') }}
+          // Now you can use {{firstName}} in your templates 
+        },
+        verificationEmail: {
+          subject: 'Confirm your account',
+          pathPlainText: resolve(__dirname, 'path/to/templates/verification_email.txt'),
+          pathHtml: resolve(__dirname, 'path/to/templates/verification_email.html'),
+          callback: (user) => { return { firstName: user.get('firstName') }}
+          // Now you can use {{firstName}} in your templates 
+        },
+        customEmailAlert: {
+          subject: 'Urgent notification!',
+          pathPlainText: resolve(__dirname, 'path/to/templates/custom_alert.txt'),
+          pathHtml: resolve(__dirname, 'path/to/templates/custom_alert.html'),
+        }
+      }
+    }
+  },
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ['Posts'] // List of classes to support for query subscriptions
