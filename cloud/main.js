@@ -325,21 +325,17 @@ Parse.Cloud.define("sendWelcomeMail", function(request, response) {
 	var myEmail = request.params.myEmail
 	
 	
-	var api_key = 'key-10e82eb3489a68ed4f84dec523a73fdf';
-var domain = 'socialiveapp.com';
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
-	
-	console.log('Mailgun Skwastka');
-
-var data = {
-  from: 'Socialive <socialive@socialiveapp.com>',
-  to: myEmail,
-  subject: 'Welcome to Socialive',
-  text: 'Ahla w sahla \n <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTyTZ7Sd-Kc_G_xH52mXMTj3AzfomebTxvFl66JwLFxn3KnO0r0">'
-};
-
-mailgun.messages().send(data, function (error, body) {
-  console.log(body);
+	const MailgunAdapter = AppCache.get('2016comrate')['userController']['adapter'];
+ 
+// Invoke the send method with an options object 
+MailgunAdapter.send({
+  templateName: 'welcomeEmailAlert',
+  // Optional override of your configuration's subject 
+  subject: 'Welcome to Socialive!',
+  // Optional override of the adapter's fromAddress 
+  fromAddress: 'Socialive <socialive@socialiveapp.com>',
+  recipient: myEmail,
+  variables: {} // {{alert}} will be compiled to 'New posts' 
 });
 	
 });
