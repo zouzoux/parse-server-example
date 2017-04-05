@@ -34,7 +34,13 @@ var api = new ParseServer({
           pathHtml: __dirname +  'path/to/templates/password_reset_email.html',
           callback: (user) => { return { firstName: user.get('firstName') }}
           // Now you can use {{firstName}} in your templates 
+        },
+          welcomeEmailAlert: {
+          subject: 'Welcome to Socialive!',
+          pathPlainText: 'welcomeplain.txt',
+          pathHtml: 'welcomepage.html',
         }
+        
     
       }
     }
