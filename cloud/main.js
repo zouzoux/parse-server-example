@@ -333,7 +333,7 @@ var data = {
   from: 'Socialive <socialive@socialiveapp.com>',
   to: myEmail,
   subject: 'Welcome to Socialive',
-  text: 'Ahla w sahla'
+  text: 'Ahla w sahla \n <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTyTZ7Sd-Kc_G_xH52mXMTj3AzfomebTxvFl66JwLFxn3KnO0r0">'
 };
 
 mailgun.messages().send(data, function (error, body) {
