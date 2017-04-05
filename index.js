@@ -17,17 +17,6 @@ var api = new ParseServer({
     publicServerURL: 'http://comerate2016.herokuapp.com/parse',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
   appName: 'Socialive',
-    emailAdapter: {
-    module: 'parse-server-simple-mailgun-adapter',
-    options: {
-      // The address that your emails come from
-      fromAddress: 'Socialive <socialive@socialiveapp.com>',
-      // Your domain from mailgun.com
-      domain: 'socialiveapp.com',
-      // Your API key from mailgun.com
-      apiKey: 'key-10e82eb3489a68ed4f84dec523a73fdf',
-    }
-  },//Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ['Posts'] // List of classes to support for query subscriptions
