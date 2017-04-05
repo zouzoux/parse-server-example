@@ -10,6 +10,8 @@ Parse.serverURL = 'https://comerate2016.herokuapp.com/parse/';
 
 var schedule = require('node-schedule');
 
+const { AppCache } = require('parse-server/lib/cache');
+
 
 var j = schedule.scheduleJob(' */1440 * * * *', function(){
 	
