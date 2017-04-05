@@ -2,6 +2,8 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
+const resolve = require('path').resolve;
+
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -37,8 +39,8 @@ var api = new ParseServer({
         },
           welcomeEmailAlert: {
           subject: 'Welcome to Socialive!',
-          pathPlainText: 'welcomeplain.txt',
-          pathHtml: 'welcomepage.html',
+          pathPlainText: resolve(__dirname, 'welcomeplain.txt'),
+          pathHtml: resolve(__dirname, 'welcomepage.html'),
         }
         
     
