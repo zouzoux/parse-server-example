@@ -442,7 +442,7 @@ Parse.Cloud.define('incrementPostNum',function(request,response)
 });
 
 
-Parse.Cloud.define('incrementemojiNum',function(request,response)
+Parse.Cloud.define('incrementEmojiNum',function(request,response)
 {    
  
 
