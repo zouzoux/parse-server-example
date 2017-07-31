@@ -379,6 +379,39 @@ var myUsername = request.params.myUsername
 
 
 
+Parse.Cloud.define('incrementUserNum',function(request,response)
+{    
+ 
+
+
+	
+  var userQuery = new Parse.Query('Numbers');
+  userQuery.equalTo('objectId','v0zCjecHp6');
+  
+	
+	
+  
+	
+	
+	 userQuery.find({ useMasterKey: true }) // count() will use the master key to bypass ACLs
+    .then(function(count) {
+		   for (var i = 0; i < count.length; i++) {
+  
+    var userData = count[i];
+    userData.increment('usersNum');
+    userData.save(null, { useMasterKey: true });
+	
+    
+     
+   }
+      response.success(count);
+    });
+	
+	
+});
+
+
+
 Parse.Cloud.define('incrementFollowers',function(request,response)
 {    
   
