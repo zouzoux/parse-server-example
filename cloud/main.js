@@ -336,8 +336,6 @@ MailgunAdapter.send({
   fromAddress: 'Socialive <socialive@socialiveapp.com>',
   recipient: myEmail,
   variables: {} // {{alert}} will be compiled to 'New posts' 
-	
-	response.success('done');
 });
 	
 });
