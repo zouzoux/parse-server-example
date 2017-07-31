@@ -335,9 +335,10 @@ MailgunAdapter.send({
   // Optional override of the adapter's fromAddress 
   fromAddress: 'Socialive <socialive@socialiveapp.com>',
   recipient: myEmail,
-  variables: {} // {{alert}} will be compiled to 'New posts' 
+  variables: {}
+	// {{alert}} will be compiled to 'New posts' 
 });
-	
+	 response.success('Done'); 
 });
 
 
