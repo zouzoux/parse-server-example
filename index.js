@@ -49,7 +49,7 @@ var api = new ParseServer({
   },
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ['Posts','Reports','Numbers','ChatMessages'] // List of classes to support for query subscriptions
+    classNames: ['Posts','Reports','Numbers','ChatMessages','User','ChatSessions','Comments','Notifications','Featured'] // List of classes to support for query subscriptions
   },
   push: {
       ios: {
